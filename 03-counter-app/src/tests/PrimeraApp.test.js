@@ -16,6 +16,16 @@ describe('Prueba en <PrimeraApp />', () => {
         const wrapper = shallow(<PrimeraApp saludo= {saludo}/>);
 
         expect(wrapper).toMatchSnapshot();
+    });
+
+    test('Debe mostrar un sibtitulo', () => {
+        const saludo = 'Hola, soy Andres';
+        const subTitulo = 'Soy un subtitulo';
+        const wrapper = shallow(<PrimeraApp saludo= {saludo} subtitulo = {subTitulo}/>);     
+
+        const textoParrafo = wrapper.find('p').text();//prueba sobre un elemento del componente
+        expect(textoParrafo).toBe(subTitulo);
     })
+    
     
 })
